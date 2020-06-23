@@ -92,6 +92,10 @@ public class MainActivity extends AppCompatActivity {
 
     // This function saves items by writing them into the data file
     private void saveItems() {
-        
+        try {
+            FileUtils.writeLines(getDataFile(), items);
+        } catch (IOException e) {
+            Log.e("MainActivity", "Error writing items", e);
+        }
     }
 }
