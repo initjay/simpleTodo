@@ -37,11 +37,7 @@ public class MainActivity extends AppCompatActivity {
         etItem = findViewById(R.id.etItem);
         rvItems = findViewById(R.id.rvItems);
 
-
-        items = new ArrayList<>();
-        items.add("Buy milk");
-        items.add("Go to the gym");
-        items.add("Have fun!");
+        loadItems();
 
         ItemsAdapter.OnLongClickListener onLongClickListener = new ItemsAdapter.OnLongClickListener() {
             @Override
@@ -51,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 // Notify the adapter
                 itemsAdapter.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(), "Item was removed", Toast.LENGTH_SHORT).show();
+                saveItems();
             }
         };
 
@@ -69,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 etItem.setText("");
                 //small popup that disappear
                 Toast.makeText(getApplicationContext(), "Item was added", Toast.LENGTH_SHORT).show();
+                saveItems();
             }
         });
     }
