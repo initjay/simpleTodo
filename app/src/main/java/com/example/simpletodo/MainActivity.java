@@ -5,17 +5,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import org.apache.commons.io.FileUtils;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<String> items;
+    ArrayList items;
 
     Button btnAdd;
     EditText etItem;
@@ -65,5 +71,27 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Item was added", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // to enable file creation
+    // build.gradle implementation 'commons-io:commons-io:2.6'
+    private File getDataFile() {
+        return new File(getFilesDir(), "data.txt");
+    }
+
+    // This function will load items by reading every line of the data file
+    // Changed "import android.os.FileUtils;" to "import org.apache.commons.io.FileUtils;" for FileUtils to recognize readLines
+    private void loadItems() {
+        try {
+            items = new ArrayList<>(FileUtils.readLines(getDataFile(), Charset.defaultCharset()));
+        } catch (IOException e) {
+            Log.e("MainActivity", "Error reading items", e);
+            items = new ArrayList<>();
+        }
+    }
+
+    // This function saves items by writing them into the data file
+    private void saveItems() {
+        
     }
 }
