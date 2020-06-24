@@ -18,11 +18,15 @@ The following **stretch** features are implemented:
 
 * [X] User can **tap a todo item in the list and bring up an edit screen for the todo item** and then have any changes to the text reflected in the todo list
 
+The following **additional** features are implemented:
+
+* [X] A random motivational quote will pop up every time the app is opened. 
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Kapture 2020-06-23 at 17.42.35.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='Kapture 2020-06-23 at 18.56.24.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 

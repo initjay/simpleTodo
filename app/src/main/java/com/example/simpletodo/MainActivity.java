@@ -14,12 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.AlertDialog;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,10 +36,24 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rvItems;
     ItemsAdapter itemsAdapter;
 
+    String[] quotes = {"“The secret of getting ahead is getting started.” – Mark Twain'",
+            "“The best time to plant a tree was 20 years ago. The second best time is now.” – Chinese Proverb",
+            "“Do one thing every day that scares you.”― Eleanor Roosevelt",
+            "“If we have the attitude that it’s going to be a great day it usually is.” – Catherine Pulsifier",
+            "“We are what we repeatedly do. Excellence, then, is not an act, but a habit.” – Aristotle"};
+
+    Random rand = new Random();
+    int upperBound = 4;
+    int int_rand = rand.nextInt(upperBound);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(quotes[int_rand]);
+        alertDialogBuilder.show();
 
         btnAdd = findViewById(R.id.btnAdd);
         etItem = findViewById(R.id.etItem);
