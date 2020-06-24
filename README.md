@@ -20,7 +20,7 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-* [X] A random motivational quote will pop up every time the app is opened. 
+* [X] A random motivational quote will pop up every time the app is opened
 
 ## Video Walkthrough
 
