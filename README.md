@@ -1,6 +1,6 @@
 # Project 1 - *Tasks*
 
-**Name of your app** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
+**Tasks** is an android app that allows building a todo list and basic todo items management functionality including adding new items, editing and deleting an existing item.
 
 Submitted by: **James Talavera**
 
@@ -32,7 +32,10 @@ GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Due to this being my first time doing Android development, there was a learning curve that I had to over come in terms
+of comprehending the overall structure and capabilities of an Android app. One issue that I did run into was implementing the ability
+to save the content of the todo list. The FileUtils object was not recognizing the readlines method, 'Hung P' commented on the Youtube
+ video to change the given import statement to 'import org.apache.commons.io.FileUtils;' which finally worked.
 
 ## License
 
