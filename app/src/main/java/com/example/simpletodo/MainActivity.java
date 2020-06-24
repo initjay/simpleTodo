@@ -1,5 +1,6 @@
 package com.example.simpletodo;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -88,6 +89,27 @@ public class MainActivity extends AppCompatActivity {
                 saveItems();
             }
         });
+    }
+
+    // handle the result of the edit activity
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if  (resultCode == RESULT_OK && requestCode == EDIT_TEXT_CODE) {
+            // retrieve the updated text value
+            String itemText = data.getStringExtra(KEY_ITEM_TEXT);
+            // extract the original position of the edit item from the position key
+            int position = data.getExtras().getInt(KEY_ITEM_POSITION);
+            // update the model at the right position with new item text
+            items.set(position, itemText);
+            // notify the adapter
+            itemsAdapter.notifyItemChanged(position);
+            // persist the changes
+            saveItems();
+            Toast.makeText(getApplicationContext(), "Item updated successfully!", Toast.LENGTH_SHORT);
+
+        } else {
+            Log.w("MainActivity", "Unkown call to onActivityResult");
+        }
     }
 
     // to enable file creation
